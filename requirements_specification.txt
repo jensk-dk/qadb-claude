@@ -1,0 +1,239 @@
+Requirement Specifications for QA Database with a Front-End Solution 
+
+The task is to develop an administrative system for a QA department to assist with common tasks such as: 
+
+Keep track of test suites and test cases, DUTs and other relevant information. 
+
+Create test runs and note down the results 
+
+Visualize test reports and keep track of regressions etc. 
+
+ 
+
+The system is envisioned to be developed as a traditional backend/frontend system, where the backend can also be manipulated by other tools than the default frontend. 
+
+Technical requirements 
+
+The backend must be programmed in Python 3. 
+
+The web API should be programmed using FastAPI. 
+
+The ORM must be implemented in SQLModel. 
+
+The development database should be an SQLite file with later transition to Postgres for production. 
+
+The front end must use Vue 3. 
+
+Add tests for the web API using pytest 
+
+Test the frontend using Playwright 
+
+Make two top level dirs: frontend and backend and keep all information for frontend and backend in those dirs, including tests. 
+
+Provide a cmd line to back up all contents of the database to a json file. 
+
+Add a readme file explaining how to: 
+
+Prepare and run frontend and backend and where to access the frontend. 
+
+Use the web api for common tasks with command line tools (curl or wget) 
+
+Transition the database, if the schema changes 
+
+Database Design 
+
+The design of the database consists of multiple tables with relationship to each other: 
+
+Table: TestSuite Table 
+
+TestSuite_ID: E.g. UI, AV, Regression, DTG, Kineton, CI+, HbbTV and Dolby. (Primary Key) 
+
+Name: Name of the test suite. 
+
+URL: URL associated with the suite. 
+
+Format: Format can e.g. determine if a test suite can be read/automated by a particular tool and what format the referenced “material” for each test case is. (string) 
+
+Version: Numeric version of the suite. (int) 
+
+Version_string: String representation of the version. (string) 
+
+is_final: Boolean indicating whether this is the final version. 
+
+Table: TestRunTemplate Table (Can contain a manually chosen set of test cases from one or more test suites.) 
+
+TestRunTemplate_ID (Primary Key) 
+
+Id: Test case ID (string) 
+
+Name: Test Run Template title (string) 
+
+Description: Text description of the test case (string) 
+
+Field: A key field (Key) 
+
+Table: TestCase Table 
+
+TestCase_ID (Primary Key) 
+
+Id: Test case identifier (string) 
+
+Title: Title of the test case (string) 
+
+Version: Numeric version. Versions must be sortable, but each standard may have their own format, so both int and string. (int) 
+
+Version_string: Version in string format. Versions must be sortable, but each standard may have their own format, so both int and string. (string) 
+
+TestSuite_ID: Foreign key linking to the TestSuite table (table 1) 
+
+appliesTo: Field specifying what the test case applies to. (foreign key) 
+
+Description: Detailed description of the test case (string) 
+
+Steps: Steps involved in the test case (string) 
+
+Precondition: Pre-conditions for the test case (string) 
+
+Area: A textual description of what this test case is about (e.g. A/V, IP, Broadcast, Front-End, etc.). (string) 
+
+Automatability: Is it possible to automate this test case in Batmanager, e.g. Yes, No, Manual, etc. (string) 
+
+Author: Person responsible for the test case (string) 
+
+Material: Associated materials (string) 
+
+isChallenged: Key indicating if the test case is challenged (key) 
+
+ChallengeIssueUrl: URL of any associated issues (key) 
+
+Table: TestRun Table 
+
+TestRun_ID (Primary Key) 
+
+TestCaseResult_IDs: Foreign key linking to the TestCaseResult table (table 5) 
+
+Status: Status of the test run (string) 
+
+Operator: Foreign key linking to the TestOperator table (table 6) 
+
+Table: TestCaseResult Table 
+
+TestCaseResult_ID (Primary Key) 
+
+Result: Outcome of the test case (pass/fail) (string) 
+
+Logs: Test run logs (string) 
+
+Comment: Comments on the result (string) 
+
+Artifacts: Related files or evidence of the test run (string) 
+
+Table: TestOperator Table  
+
+TestOperator_ID (Primary Key)  
+
+Name: Operator’s name (string) 
+
+Mail: Email address (string) 
+
+Login: Login username (string)  
+
+Access_Rights: Operator’s permissions (string) 
+
+Company: Foreign key linking to the Company table (table 7) 
+
+Table: Company Table  
+
+Company_ID (Primary Key)  
+
+Field: Key field for company data  
+
+Access_Rights: Company-wide permissions  
+
+Table: Specification Table  
+
+Specification_ID (Primary Key)  
+
+Name: Specification name (string) 
+
+URL: Specification document URL (string) 
+
+Version: Version of the specification (string) 
+
+Table: Requirement Table  
+
+Requirement_ID (Primary Key)  
+
+Field: Key field for requirements  
+
+Table: DUT Table 
+
+Product_ID (Primary Key) 
+
+Product_name: Name of the product (string) 
+
+Make: Manufacturer (string) 
+
+Model: Model name (string) 
+
+Countries: Supported regions (string) 
+
+Parent: Parent device (if any) (string) 
+
+Capabilities: Linked capabilities (foreign key link to table 11) 
+
+Capability Table 
+
+Capability_ID (Primary Key) 
+
+Name: Capability name (string) 
+
+Category: Category of the capability (string) 
+
+Version: Numeric version (int) 
+
+Version_string: String version of the capability (string) 
+
+The following entities have relationships to each other: 
+
+A TestCase belongs to exactly one TestSuite. 
+
+A TestRun is performed by a TestOperator and has one or more TestCaseResults. 
+
+A TestOperator belongs to a Company. 
+
+A DUT has zero or more Capabilities. 
+
+A Requirement stems from one or more Specifications. 
+
+A TestRunTemplate consists of one or more TestCases. 
+
+ 
+
+Frontend 
+
+The Front-End solution should be a web interface to manage and view test reports. It should support drag-and-drop functionality for adding test reports to the database. It should allow test report uploads in JSON and Excel formats. 
+
+The Front-End solution should display pass/fail results for the two most recent test runs. Two columns side by side with the columns Test Case Id, Result, BatManager Version and Machine ID and DUT Software. A bar-chart with the pass/fail results should also be displayed beside the two columns with results. 
+
+The Front-End solution should have the possibility of enabling editing of test runs, such as adding comments or notes to the test cases. It should also include a test run template for direct result entry and saving to the database instead of only supporting uploading of files. 
+
+For visualisation, the Front-End solution should support the option to select predefined test run options, such as Release Test Run and Regression Test Run. The option should provide a test run template for direct entry but also visualise previous test runs with two columns with results and bar-chart. For the predefined test runs it should also allow the possibility of adding and removing test cases. 
+
+------------------------------------------------------------------------------------------------------------------ 
+
+I want the Front-End solution to support drop in files, such that I can drag a test report to the Front-End solution and add it this way to the database. 
+
+I want to add test reports from the following file formats: Json and excel. 
+
+I want to be shown in the Front-End solution the passes and fails from the newest test run and the second newest test run. 
+
+I want to edit a test run in the Front-End, e.g. add a comment or note under a test case. 
+
+I want the Front-End solution to consist of a test run template, such that I can add results to a test report directly in the Front-End solution and then add it to the database when finished with the test run. 
+
+I want to a pre-defined option to select in Front-End solution which consist of specific test cases need to run. E.g. a Release Test Run, Regression Test Run, etc. There should also be an option for selection based on quarterly, monthly or yearly runs. 
+
+I want the possibility to add and subtract test cases to these pre-defined tests run options in the Front-End solution. 
+
+ 

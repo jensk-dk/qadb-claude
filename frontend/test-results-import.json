@@ -1,0 +1,41 @@
+{
+  "test_run": {
+    "name": "Imported JSON Test Run",
+    "date": "2025-03-05",
+    "device_id": 13,
+    "operator": "Test Script",
+    "description": "This test run was created by the test data script for import testing"
+  },
+  "results": [
+    {
+      "test_case_id": 18,
+      "result": "Pass",
+      "comments": "Automatically generated test result",
+      "logs": "Test execution log for case UI-001"
+    },
+    {
+      "test_case_id": 19,
+      "result": "Pass",
+      "comments": "Automatically generated test result",
+      "logs": "Test execution log for case UI-002"
+    },
+    {
+      "test_case_id": 20,
+      "result": "Fail",
+      "comments": "Automatically generated test result",
+      "logs": "Test execution log for case UI-003"
+    },
+    {
+      "test_case_id": 21,
+      "result": "Pass",
+      "comments": "Automatically generated test result",
+      "logs": "Test execution log for case UI-004"
+    },
+    {
+      "test_case_id": 22,
+      "result": "Fail",
+      "comments": "Automatically generated test result",
+      "logs": "Test execution log for case UI-005"
+    }
+  ]
+}

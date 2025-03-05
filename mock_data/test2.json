@@ -1,0 +1,68 @@
+{
+  "test_cases": [
+    {
+      "case_id": "TC001",
+      "title": "Basic Functionality Test",
+      "version": 1,
+      "version_string": "1.0",
+      "test_suite_id": "default",
+      "area": "Core",
+      "automatability": "Yes"
+    },
+    {
+      "case_id": "TC002",
+      "title": "Performance Test",
+      "version": 1,
+      "version_string": "1.0",
+      "test_suite_id": "default",
+      "area": "Performance",
+      "automatability": "Yes"
+    },
+    {
+      "case_id": "TC003",
+      "title": "Security Test",
+      "version": 1,
+      "version_string": "1.0",
+      "test_suite_id": "default",
+      "area": "Security",
+      "automatability": "Yes"
+    }
+  ],
+  "test_case_results": [
+    {
+      "test_case_id": "TC001",
+      "result": "Fail",
+      "comment": "Test failed due to unexpected error",
+      "logs": "Error: Connection refused",
+      "artifacts": "error_screenshot.png"
+    },
+    {
+      "test_case_id": "TC002",
+      "result": "Pass",
+      "comment": "Performance within acceptable range",
+      "logs": "Response time: 120ms",
+      "artifacts": "performance_metrics.csv"
+    },
+    {
+      "test_case_id": "TC003",
+      "result": "Fail",
+      "comment": "Security vulnerability detected",
+      "logs": "XSS vulnerability found in input field",
+      "artifacts": "security_scan.log"
+    },
+    {
+      "test_case_id": "TC004",
+      "result": "Skip",
+      "comment": "Test skipped due to environment issues",
+      "logs": "Environment not properly configured",
+      "artifacts": ""
+    },
+    {
+      "test_case_id": "TC005",
+      "result": "Pass",
+      "comment": "All checks passed successfully",
+      "logs": "All 15 assertions passed",
+      "artifacts": "validation_report.pdf"
+    }
+  ]
+}

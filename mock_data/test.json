@@ -1,0 +1,68 @@
+{
+  "test_cases": [
+    {
+      "case_id": "TC001",
+      "title": "Basic Functionality Test",
+      "version": 1,
+      "version_string": "1.0",
+      "test_suite_id": "default",
+      "area": "Core",
+      "automatability": "Yes"
+    },
+    {
+      "case_id": "TC002",
+      "title": "Performance Test",
+      "version": 1,
+      "version_string": "1.0",
+      "test_suite_id": "default",
+      "area": "Performance",
+      "automatability": "Yes"
+    },
+    {
+      "case_id": "TC003",
+      "title": "Security Test",
+      "version": 1,
+      "version_string": "1.0",
+      "test_suite_id": "default",
+      "area": "Security",
+      "automatability": "Yes"
+    }
+  ],
+  "test_case_results": [
+    {
+      "test_case_id": "TC001",
+      "result": "Pass",
+      "comment": "Test passed successfully",
+      "logs": "No errors detected",
+      "artifacts": "screenshot.png"
+    },
+    {
+      "test_case_id": "TC002",
+      "result": "Fail",
+      "comment": "Test failed due to timeout",
+      "logs": "Error: Connection timeout after 30s",
+      "artifacts": "error_log.txt"
+    },
+    {
+      "test_case_id": "TC003",
+      "result": "Pass",
+      "comment": "All assertions passed",
+      "logs": "Test completed in 2.3s",
+      "artifacts": ""
+    },
+    {
+      "test_case_id": "TC004",
+      "result": "Pass",
+      "comment": "Feature working as expected",
+      "logs": "",
+      "artifacts": ""
+    },
+    {
+      "test_case_id": "TC005",
+      "result": "Fail",
+      "comment": "Unexpected behavior in edge case",
+      "logs": "AssertionError: Expected 200 but got 404",
+      "artifacts": "debug_info.log"
+    }
+  ]
+}

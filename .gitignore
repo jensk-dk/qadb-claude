@@ -1,0 +1,59 @@
+# Backend
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+.env
+*.db
+*.sqlite3
+
+# Alembic
+versions/
+
+# Frontend
+node_modules/
+.DS_Store
+/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env.local
+.env.*.local
+*.tsbuildinfo
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+.editorconfig
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.playwright/
+
+# Logs
+logs/
+*.log
+
+# OS
+Thumbs.db

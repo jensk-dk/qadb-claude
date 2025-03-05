@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Test Run</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        #output {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Test Data for QA Database</h1>
+    <p>Click the button below to create sample test data in the database.</p>
+    
+    <button id="createData">Create Sample Data</button>
+    <div id="output">Output will appear here...</div>
+
+    <script>
+        const logOutput = (message) => {
+            const output = document.getElementById('output');
+            output.innerHTML += message + '\n';
+        };
+
+        // Sample data
+        const testSuite = {
+            name: 'Web UI Tests',
+            description: 'Tests for the web user interface',
+            version: '1.0'
+        };
+
+        const testCases = [
+            {
+                name: 'Login Screen',
+                description: 'Test the login screen functionality',
+                status: 'Active',
+                procedure: '1. Load login page\n2. Enter credentials\n3. Click login\n4. Verify redirect to dashboard'
+            },
+            {
+                name: 'Navigation Menu',
+                description: 'Test the navigation menu functionality',
+                status: 'Active',
+                procedure: '1. Login\n2. Check menu items\n3. Click each menu item\n4. Verify correct page loads'
+            },
+            {
+                name: 'Form Submit',
+                description: 'Test form submission',
+                status: 'Active',
+                procedure: '1. Go to form page\n2. Fill form fields\n3. Submit form\n4. Verify success message'
+            }
+        ];
+
+        const device = {
+            name: 'Test Browser',
+            description: 'Browser for UI testing',
+            model: 'Chrome',
+            firmware_version: '120.0.0',
+            status: 'Active',
+            location: 'Virtual'
+        };
+
+        document.getElementById('createData').addEventListener('click', async () => {
+            try {
+                // Get token from localStorage (should be there if logged in)
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    logOutput('No authentication token found. Please log in first.');
+                    return;
+                }
+
+                logOutput('Authentication token found. Starting data creation...');
+
+                // Headers for API requests
+                const headers = {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                };
+
+                // Create test suite
+                logOutput('Creating test suite...');
+                const suiteResponse = await fetch('/api/test-suites/', {
+                    method: 'POST',
+                    headers,
+                    body: JSON.stringify(testSuite)
+                });
+
+                if (!suiteResponse.ok) {
+                    throw new Error(`Failed to create test suite: ${suiteResponse.status}`);
+                }
+
+                const suite = await suiteResponse.json();
+                logOutput(`Created test suite: ${suite.name} (ID: ${suite.id})`);
+
+                // Create test cases
+                logOutput('Creating test cases...');
+                const createdTestCases = [];
+                for (const tc of testCases) {
+                    // Add test suite ID
+                    const testCaseData = { ...tc, test_suite_id: suite.id };
+                    
+                    const tcResponse = await fetch('/api/test-cases/', {
+                        method: 'POST',
+                        headers,
+                        body: JSON.stringify(testCaseData)
+                    });
+
+                    if (!tcResponse.ok) {
+                        logOutput(`Warning: Failed to create test case ${tc.name}`);
+                        continue;
+                    }
+
+                    const testCase = await tcResponse.json();
+                    logOutput(`Created test case: ${testCase.name} (ID: ${testCase.id})`);
+                    createdTestCases.push(testCase);
+                }
+
+                // Create device
+                logOutput('Creating device...');
+                const deviceResponse = await fetch('/api/duts/', {
+                    method: 'POST',
+                    headers,
+                    body: JSON.stringify(device)
+                });
+
+                if (!deviceResponse.ok) {
+                    throw new Error(`Failed to create device: ${deviceResponse.status}`);
+                }
+
+                const createdDevice = await deviceResponse.json();
+                logOutput(`Created device: ${createdDevice.name} (ID: ${createdDevice.id})`);
+
+                // Create test run
+                if (createdTestCases.length > 0) {
+                    logOutput('Creating test run...');
+                    
+                    const testRun = {
+                        name: 'Web UI Test Run',
+                        status: 'Completed',
+                        device_id: createdDevice.id,
+                        operator: 'Web Script',
+                        notes: 'Created by web script',
+                        test_case_results: createdTestCases.map(tc => ({
+                            test_case_id: tc.id,
+                            result: Math.random() > 0.3 ? 'Pass' : 'Fail',  // 70% pass rate
+                            comments: 'Generated test result'
+                        }))
+                    };
+
+                    const trResponse = await fetch('/api/test-runs/', {
+                        method: 'POST',
+                        headers,
+                        body: JSON.stringify(testRun)
+                    });
+
+                    if (!trResponse.ok) {
+                        throw new Error(`Failed to create test run: ${trResponse.status}`);
+                    }
+
+                    const createdRun = await trResponse.json();
+                    logOutput(`Created test run: ${createdRun.name} (ID: ${createdRun.id})`);
+                }
+
+                logOutput('Data creation completed successfully!');
+                logOutput('Please refresh the page to see the new data.');
+                
+                // Set a timer to reload the page after 2 seconds
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+                
+            } catch (error) {
+                logOutput(`Error: ${error.message}`);
+                console.error(error);
+            }
+        });
+    </script>
+</body>
+</html>
