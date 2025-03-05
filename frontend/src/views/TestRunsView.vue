@@ -397,6 +397,7 @@ export default {
     // Load test runs from API
     const loadTestRuns = async () => {
       loading.value = true
+      console.log('TestRunsView: Loading test runs from API...')
       
       const params = {}
       
@@ -410,12 +411,38 @@ export default {
         params.search = filters.search
       }
       
+      console.log('TestRunsView: Query parameters:', params)
+      
       try {
         const response = await api.getTestRuns(params)
-        console.log('Loaded test runs:', response.data)
-        testRuns.value = response.data
+        console.log('TestRunsView: API Response:', response)
+        console.log('TestRunsView: Data from API:', response.data)
+        console.log('TestRunsView: Data length:', response.data?.length || 0)
+        
+        // Debug response
+        console.log('TestRunsView: Raw API Response:', JSON.stringify(response.data));
+        
+        // Map backend fields to frontend field names
+        testRuns.value = (response.data || []).map(run => {
+          console.log('TestRunsView: Processing test run:', run);
+          return {
+            id: run.id,
+            raw: run, // Store the raw data for actions and details
+            name: run.name || `Test Run #${run.id}`,
+            status: run.status || 'Unknown',
+            run_date: run.run_date || 'N/A',
+            description: run.description || '',
+            // Store these for potential use but we'll use raw data for components
+            dut_id: run.dut_id,
+            operator_id: run.operator_id
+          };
+        });
+        
+        console.log('TestRunsView: Test runs assigned to UI:', testRuns.value)
       } catch (error) {
-        console.error('Error loading test runs:', error)
+        console.error('TestRunsView: Error loading test runs:', error)
+        console.error('TestRunsView: Error details:', error.response?.data || error.message)
+        
         snackbarStore.showSnackbar({
           text: 'Error loading test runs',
           color: 'error'

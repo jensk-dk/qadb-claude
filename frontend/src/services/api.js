@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // Create axios instance with base URL and default headers
 const api = axios.create({
-  baseURL: '/api'
+  baseURL: 'http://localhost:8000/api'
 })
 
 // Add request interceptor for authentication
@@ -10,19 +10,31 @@ api.interceptors.request.use(
   config => {
     const token = localStorage.getItem('token')
     if (token) {
+      console.log('API: Adding auth token to request')
       config.headers.Authorization = `Bearer ${token}`
+    } else {
+      console.warn('API: No auth token found in localStorage')
     }
+    console.log('API: Request config:', config)
     return config
   },
-  error => Promise.reject(error)
+  error => {
+    console.error('API: Request interceptor error:', error)
+    return Promise.reject(error)
+  }
 )
 
 // Add response interceptor for error handling
 api.interceptors.response.use(
-  response => response,
+  response => {
+    console.log(`API: Response from ${response.config.url}:`, response)
+    return response
+  },
   error => {
+    console.error('API: Response error:', error)
     // Handle authentication errors
     if (error.response && error.response.status === 401) {
+      console.warn('API: Authentication error (401), redirecting to login')
       // Clear token if it's invalid/expired
       localStorage.removeItem('token')
       window.location.href = '/login'
@@ -35,10 +47,21 @@ api.interceptors.response.use(
 export default {
   // Authentication
   login(username, password) {
-    const formData = new FormData()
+    console.log('API: Login attempt for user:', username)
+    const formData = new URLSearchParams()
     formData.append('username', username)
     formData.append('password', password)
-    return axios.post('/api/auth/token', formData)
+    return axios.post('http://localhost:8000/api/auth/token', formData, {
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    })
+      .then(response => {
+        console.log('API: Login successful, token received:', response.data)
+        return response
+      })
+      .catch(error => {
+        console.error('API: Login failed:', error.response?.data || error.message)
+        throw error
+      })
   },
   
   getCurrentUser() {

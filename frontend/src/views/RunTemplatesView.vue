@@ -270,11 +270,36 @@ export default {
     // Load templates from API
     const loadTemplates = async () => {
       loading.value = true
+      console.log('RunTemplatesView: Loading templates from API...')
       try {
         const response = await api.getTestRunTemplates()
-        templates.value = response.data
+        console.log('RunTemplatesView: API Response:', response)
+        console.log('RunTemplatesView: Data from API:', response.data)
+        console.log('RunTemplatesView: Data length:', response.data?.length || 0)
+        
+        // Debug response
+        console.log('RunTemplatesView: Raw API Response:', JSON.stringify(response.data));
+        
+        // Map backend fields to frontend field names
+        templates.value = (response.data || []).map(template => {
+          console.log('RunTemplatesView: Processing template:', template);
+          return {
+            id: template.id,
+            raw: template, // Store the raw data for actions
+            name: template.name || template.template_id || `Template #${template.id}`,
+            description: template.description || '',
+            version: template.version || '1.0',
+            is_default: template.is_default || false,
+            // Process test_cases if available for display
+            test_count: template.test_cases?.length || 0
+          };
+        });
+        
+        console.log('RunTemplatesView: Templates assigned to UI:', templates.value)
       } catch (error) {
-        console.error('Error loading test run templates:', error)
+        console.error('RunTemplatesView: Error loading templates:', error)
+        console.error('RunTemplatesView: Error details:', error.response?.data || error.message)
+        
         snackbarStore.showSnackbar({
           text: 'Error loading test run templates',
           color: 'error'

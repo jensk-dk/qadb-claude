@@ -77,25 +77,25 @@ test.describe('QA Database Data Verification', () => {
   });
 
   test('Should display test run templates data', async () => {
-    // Navigate to dashboard (we'll skip templates for now due to URL issues)
-    await page.goto(`${baseURL}/`);
+    // Navigate to templates page
+    await page.goto(`${baseURL}/templates`);
     
-    // Wait for dashboard to load
-    await page.waitForSelector('h1:has-text("Dashboard")');
+    // Wait for page to load
+    await page.waitForSelector('h1:has-text("Test Run Templates")');
     
     // Take a screenshot for verification
     await page.screenshot({ path: 'templates-page.png' });
     
-    // Check if dashboard widgets are visible
-    const dashboardWidgets = page.locator('.v-card');
-    await expect(dashboardWidgets).toBeVisible();
+    // Check if templates are visible in the table
+    const dataTable = page.locator('table');
+    await expect(dataTable).toBeVisible();
     
-    // Count the number of widgets
-    const widgetCount = await dashboardWidgets.count();
-    console.log(`Found ${widgetCount} dashboard widgets`);
+    // Count the number of rows
+    const rowCount = await page.locator('table tbody tr').count();
+    console.log(`Found ${rowCount} test run templates`);
     
-    // Just check if we have at least one widget
-    expect(widgetCount).toBeGreaterThanOrEqual(1);
+    // Verify we have at least some templates
+    expect(rowCount).toBeGreaterThan(0);
   });
 
   test('Should display test runs data', async () => {

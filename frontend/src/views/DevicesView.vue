@@ -239,20 +239,37 @@ export default {
     // Load devices from API
     const loadDevices = async () => {
       loading.value = true
+      console.log('DevicesView: Loading devices from API...')
       try {
         const response = await api.getDUTs()
+        console.log('DevicesView: API Response:', response)
+        console.log('DevicesView: Data from API:', response.data)
+        console.log('DevicesView: Data length:', response.data?.length || 0)
+        
+        // Debug response
+        console.log('DevicesView: Raw API Response:', JSON.stringify(response.data));
+        
         // Map backend fields to frontend field names
-        devices.value = response.data.map(dut => ({
-          ...dut,
-          name: dut.product_name, // Map product_name to name for UI
-          status: 'Active', // Default status if not provided
-          identifier: dut.id.toString(), // Use ID as identifier
-          firmware_version: dut.make || '', // Use make as firmware version if needed
-          location: dut.countries || '', // Use countries as location if needed
-          capabilities: dut.capabilities || [] // Ensure capabilities exists
-        }))
+        devices.value = (response.data || []).map(dut => {
+          console.log('DevicesView: Processing DUT:', dut)
+          return {
+            id: dut.id,
+            raw: dut, // Store the raw data for actions
+            name: dut.product_name, // Map product_name to name for UI
+            status: 'Active', // Default status if not provided
+            identifier: dut.id?.toString() || 'N/A', // Use ID as identifier
+            model: dut.model || '',
+            firmware_version: dut.make || '', // Use make as firmware version if needed
+            location: dut.countries || '', // Use countries as location if needed
+            capabilities: dut.capabilities || [] // Ensure capabilities exists
+          }
+        })
+        
+        console.log('DevicesView: Processed devices for UI:', devices.value)
       } catch (error) {
-        console.error('Error loading devices:', error)
+        console.error('DevicesView: Error loading devices:', error)
+        console.error('DevicesView: Error details:', error.response?.data || error.message)
+        
         snackbarStore.showSnackbar({
           text: 'Error loading devices',
           color: 'error'

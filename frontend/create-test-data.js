@@ -33,25 +33,40 @@ const testCases = [
   }
 ];
 
-const device = {
-  name: 'Test Server',
-  description: 'Primary test environment server',
-  model: 'Server-X2000',
-  firmware_version: '10.5.2',
-  status: 'Active',
-  location: 'Lab Room 302'
-};
+const devices = [
+  {
+    product_name: 'Smart TV Alpha',
+    make: 'TechVision',
+    model: 'STV-A5000',
+    countries: 'US, EU, JP'
+  },
+  {
+    product_name: 'Smart Speaker Beta',
+    make: 'AudioTech',
+    model: 'SSB-200',
+    countries: 'US, CA, UK'
+  },
+  {
+    product_name: 'Media Player Gamma',
+    make: 'MediaStream',
+    model: 'MPG-300',
+    countries: 'Global'
+  }
+];
 
 // Set up functions
 async function login() {
   try {
-    const formData = new FormData();
-    formData.append('username', 'admin');  // Replace with actual credentials
-    formData.append('password', 'password');  // Replace with actual credentials
+    const formData = new URLSearchParams();
+    formData.append('username', 'admin');
+    formData.append('password', 'admin123'); // Default password from README
     
-    const response = await axios.post(`${API_BASE}/auth/token`, formData);
+    const response = await axios.post(`${API_BASE}/auth/token`, formData, {
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    });
+    
     token = response.data.access_token;
-    console.log('Successfully logged in');
+    console.log('Successfully logged in and obtained token');
     return token;
   } catch (error) {
     console.error('Login failed:', error.response?.data || error.message);
@@ -96,17 +111,22 @@ async function createTestCases(testSuiteId) {
   return createdTestCases;
 }
 
-async function createDevice() {
-  try {
-    const response = await axios.post(`${API_BASE}/duts/`, device, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    console.log('Created device:', response.data);
-    return response.data;
-  } catch (error) {
-    console.error('Failed to create device:', error.response?.data || error.message);
-    return null;
+async function createDevices() {
+  const createdDevices = [];
+  
+  for (const device of devices) {
+    try {
+      const response = await axios.post(`${API_BASE}/duts/`, device, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      console.log('Created device:', response.data.product_name);
+      createdDevices.push(response.data);
+    } catch (error) {
+      console.error(`Failed to create device ${device.product_name}:`, error.response?.data || error.message);
+    }
   }
+  
+  return createdDevices;
 }
 
 async function createTestRun(testCases, deviceId) {
@@ -175,6 +195,49 @@ async function createJsonTestRun(testCases, deviceId) {
   }
 }
 
+// Add test run templates
+const testRunTemplates = [
+  {
+    template_id: 'QUICK-TEMPLATE',
+    name: 'Quick Test Template',
+    description: 'Template for quick smoke tests'
+  },
+  {
+    template_id: 'FULL-TEMPLATE',
+    name: 'Full Test Template',
+    description: 'Complete test coverage template'
+  }
+];
+
+async function createTestRunTemplates(testCases) {
+  const createdTemplates = [];
+  
+  for (const template of testRunTemplates) {
+    try {
+      // Select a subset of test cases for this template
+      const templateTestCases = testCases
+        .slice(0, Math.min(testCases.length, 2)) // Use up to 2 test cases
+        .map(tc => ({ test_case_id: tc.id }));
+      
+      const templateData = {
+        ...template,
+        test_cases: templateTestCases
+      };
+      
+      const response = await axios.post(`${API_BASE}/test-run-templates/`, templateData, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      
+      console.log('Created test run template:', response.data.name);
+      createdTemplates.push(response.data);
+    } catch (error) {
+      console.error(`Failed to create template ${template.name}:`, error.response?.data || error.message);
+    }
+  }
+  
+  return createdTemplates;
+}
+
 // Main execution
 async function main() {
   await login();
@@ -185,16 +248,23 @@ async function main() {
   // Create test cases
   const createdTestCases = await createTestCases(createdSuite?.id);
   
-  // Create device
-  const createdDevice = await createDevice();
+  // Create devices
+  const createdDevices = await createDevices();
   
-  // Create test run if we have test cases
-  if (createdTestCases.length > 0 && createdDevice) {
-    await createTestRun(createdTestCases, createdDevice.id);
+  // Create test run templates
+  if (createdTestCases.length > 0) {
+    await createTestRunTemplates(createdTestCases);
+  }
+  
+  // Create test run if we have test cases and devices
+  if (createdTestCases.length > 0 && createdDevices.length > 0) {
+    // Use the first device for the test run
+    const firstDevice = createdDevices[0];
+    await createTestRun(createdTestCases, firstDevice.id);
     
     // Also create a "JSON imported" test run
     try {
-      await createJsonTestRun(createdTestCases, createdDevice.id);
+      await createJsonTestRun(createdTestCases, firstDevice.id);
     } catch (error) {
       console.log('Note: JSON import simulation failed, but regular test run should work');
     }
