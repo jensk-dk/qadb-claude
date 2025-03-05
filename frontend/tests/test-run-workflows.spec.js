@@ -31,6 +31,15 @@ test.describe('Test Run and Test Run Template Workflows', () => {
     await page.waitForURL(`${baseURL}/`);
     await expect(page.locator('h1:has-text("Dashboard")')).toBeVisible();
   });
+  
+  test.afterEach(async () => {
+    await page.close();
+  });
+  
+  // Screenshot helper function for debugging and documentation
+  async function takeScreenshot(page, name) {
+    await page.screenshot({ path: `./playwright-report/screenshots/${name}-${Date.now()}.png` });
+  }
 
   test('Should display test runs and show details', async () => {
     // Navigate to test runs page
@@ -63,6 +72,108 @@ test.describe('Test Run and Test Run Template Workflows', () => {
     
     // Check if test case results are displayed
     await expect(page.locator('h2:has-text("Test Case Results")')).toBeVisible();
+  });
+  
+  test('Should verify all components of test run detail view', async () => {
+    // Navigate to test runs page
+    await page.goto(`${baseURL}/test-runs`);
+    
+    // Wait for the page to load
+    await page.waitForSelector('h1:has-text("Test Runs")');
+    
+    // Check if we have at least one test run
+    const firstRow = page.locator('table tbody tr').first();
+    await expect(firstRow).toBeVisible();
+    
+    // Click the view button (eye icon) on the first test run
+    await firstRow.locator('button i.mdi-eye').click();
+    
+    // Wait for the details page to load
+    await page.waitForURL(`${baseURL}/test-runs/*`);
+    
+    // Verify all components of the test run detail page
+    
+    // 1. Header Section
+    const statusChip = page.locator('.v-chip').first();
+    await expect(statusChip).toBeVisible();
+    
+    // 2. Action Buttons (Edit & Delete)
+    await expect(page.locator('button:has-text("Edit")')).toBeVisible();
+    await expect(page.locator('button:has-text("Delete")')).toBeVisible();
+    
+    // 3. Summary Card
+    await expect(page.locator('.v-card-title').filter({ hasText: 'Summary' })).toBeVisible();
+    
+    // 4. Pass Rate information
+    await expect(page.locator('.v-list-item-title').filter({ hasText: 'Pass Rate' })).toBeVisible();
+    const progressBar = page.locator('.v-progress-linear');
+    await expect(progressBar).toBeVisible();
+    
+    // 5. Test Case Results Section
+    await expect(page.locator('h2:has-text("Test Case Results")')).toBeVisible();
+    
+    // 6. Test Results Filtering
+    await expect(page.locator('.v-select').filter({ hasText: 'Filter by Result' })).toBeVisible();
+    await expect(page.locator('.v-text-field').filter({ hasText: 'Search' })).toBeVisible();
+    
+    // 7. Action Buttons for Results
+    await expect(page.locator('button:has-text("Export")')).toBeVisible();
+    await expect(page.locator('button:has-text("Add Result")')).toBeVisible();
+    
+    // 8. Test Case Results Table
+    const resultsTable = page.locator('.v-data-table');
+    await expect(resultsTable).toBeVisible();
+    
+    // Test filtering functionality
+    // Filter by "Pass" results
+    await page.locator('.v-select').filter({ hasText: 'Filter by Result' }).locator('.v-field').click();
+    await page.locator('.v-list-item').filter({ hasText: 'Pass' }).click();
+    
+    // Add a search term if there are results
+    const hasResults = await page.locator('table tbody tr').count() > 0;
+    if (hasResults) {
+      // Get first result's test case title to search for
+      const firstResultTitle = await page.locator('table tbody tr').first().locator('td').nth(1).textContent();
+      if (firstResultTitle && firstResultTitle.length > 3) {
+        // Search for part of the title
+        const searchTerm = firstResultTitle.substring(0, 3);
+        await page.locator('input[aria-label="Search"]').fill(searchTerm);
+        // Give time for search to apply
+        await page.waitForTimeout(500);
+      }
+    }
+    
+    // Test the view details functionality if there are results
+    if (hasResults) {
+      // Click eye icon to view details
+      await page.locator('table tbody tr').first().locator('button i.mdi-eye').click();
+      
+      // Verify details dialog appears
+      const resultDialog = page.locator('.v-dialog').filter({ hasText: 'Close' });
+      await expect(resultDialog).toBeVisible();
+      
+      // Close the dialog
+      await page.locator('button:has-text("Close")').click();
+      await expect(resultDialog).not.toBeVisible();
+    }
+    
+    // Test the edit dialog
+    await page.locator('button:has-text("Edit")').click();
+    const editDialog = page.locator('.v-dialog').filter({ hasText: 'Edit Test Run' });
+    await expect(editDialog).toBeVisible();
+    
+    // Fill in a new description in the edit dialog
+    const newDescription = `Updated via Playwright test at ${new Date().toISOString()}`;
+    await page.locator('textarea').fill(newDescription);
+    
+    // Save the changes
+    await page.locator('button:has-text("Save")').click();
+    
+    // Verify dialog is closed
+    await expect(editDialog).not.toBeVisible();
+    
+    // Check if description was updated in the UI
+    await expect(page.locator('.v-card-text')).toContainText(newDescription);
   });
 
   test('Should create a new test run', async () => {
@@ -202,6 +313,10 @@ test.describe('Device (DUT) Management Workflows', () => {
     await page.waitForURL(`${baseURL}/`);
     await expect(page.locator('h1:has-text("Dashboard")')).toBeVisible();
   });
+  
+  test.afterEach(async () => {
+    await page.close();
+  });
 
   test('Should display devices and allow creating new devices', async () => {
     // Navigate to devices page
@@ -288,5 +403,70 @@ test.describe('Device (DUT) Management Workflows', () => {
 });
 
 test.afterEach(async () => {
-  await page.close();
+  // Moved page close to each describe block
+});
+
+test.describe('Adding Test Results to a Test Run', () => {
+  let page;
+
+  test.beforeEach(async ({ browser }) => {
+    // Create a new page for each test
+    page = await browser.newPage();
+    
+    // Login to the application
+    await page.goto(`${baseURL}/login`);
+    await page.fill('input[type="text"]', username);
+    await page.fill('input[type="password"]', password);
+    await page.click('button:has-text("LOGIN")');
+    await page.waitForURL(`${baseURL}/`);
+  });
+  
+  test('Should add a new test case result to a test run', async () => {
+    // Navigate to test runs page
+    await page.goto(`${baseURL}/test-runs`);
+    await page.waitForSelector('h1:has-text("Test Runs")');
+    
+    // Check if we have at least one test run
+    const firstRow = page.locator('table tbody tr').first();
+    await expect(firstRow).toBeVisible();
+    
+    // Go to the detail view
+    await firstRow.locator('button i.mdi-eye').click();
+    await page.waitForURL(`${baseURL}/test-runs/*`);
+    
+    // Click "Add Result" button
+    await page.locator('button:has-text("Add Result")').click();
+    
+    // Verify dialog appears
+    const addDialog = page.locator('.v-dialog').filter({ hasText: 'Add Test Case Result' });
+    await expect(addDialog).toBeVisible();
+    
+    // Select a test case from the dropdown (first one available)
+    await page.locator('.v-select').filter({ hasText: 'Test Case' }).locator('.v-field').click();
+    await page.locator('.v-list-item').first().click();
+    
+    // Select a result (Pass or Fail)
+    await page.locator('.v-select').filter({ hasText: 'Result' }).locator('.v-field').click();
+    await page.locator('.v-list-item').filter({ hasText: 'Pass' }).click();
+    
+    // Add a comment
+    const comment = `Playwright test result added at ${new Date().toISOString()}`;
+    await page.locator('textarea').first().fill(comment);
+    
+    // Add some logs
+    await page.locator('textarea').nth(1).fill('Test log data created by Playwright test');
+    
+    // Save the result
+    await page.locator('button:has-text("Add")').click();
+    
+    // Verify dialog is closed
+    await expect(addDialog).not.toBeVisible();
+    
+    // Verify snackbar appears with success message
+    await expect(page.locator('.v-snackbar')).toBeVisible();
+  });
+  
+  test.afterEach(async () => {
+    await page.close();
+  });
 });

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // Create axios instance with base URL and default headers
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api'
+  baseURL: 'http://localhost:8001/api'
 })
 
 // Add request interceptor for authentication
@@ -51,7 +51,7 @@ export default {
     const formData = new URLSearchParams()
     formData.append('username', username)
     formData.append('password', password)
-    return axios.post('http://localhost:8000/api/auth/token', formData, {
+    return axios.post('http://localhost:8001/api/auth/token', formData, {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     })
       .then(response => {

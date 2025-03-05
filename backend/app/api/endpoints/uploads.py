@@ -3,6 +3,7 @@ from sqlmodel import Session, select
 from typing import List, Optional
 from app.db.database import get_session
 from app.core.file_utils import process_upload_file
+from app.core.test_case_utils import create_or_find_test_case
 from app.models.base import TestCase, TestRun, TestCaseResult, TestOperator, TestSuite
 from app.models.schemas import StandardResponse, FileUploadResponse
 from app.api.deps import get_current_active_user

@@ -1,0 +1,1231 @@
+{
+    "id": "44a685db-b61e-4053-944c-f736dafa92c8",
+    "state": "Finished",
+    "result": "Failed",
+    "harness_info": {
+        "batmanager_version": {
+            "sbat-man": "1.30",
+            "testsuite.js": "2.8.3",
+            "sla-test-harness": "1.44.4",
+            "gui": "1.73.0"
+        },
+        "hostname": "sbatman6",
+        "settings": "modulator: TUNERSERVER\nkey_code_driver: VNC\ndut_ip: 192.168.13.16\nred_rat: redrat_code_set_name='SkyGlass' redrat_instance_id='RR-Pico-25326' redrat_port_number=1 redrat_api_url='http://localhost:5248/api/redrats/RR-Pico-25326/1'\n"
+    },
+    "dut_info": {
+        "dut_id": "208dc5fb-0b63-4aca-890c-9c3868037b9e",
+        "dut_name": "Sky Llama - Italy",
+        "serial": "LT11SK722190011BF",
+        "dut_sw_version": "STABLE2_20241023231111_U",
+        "dut_sw_version_extended": "SKTL11MEIIT_VBN_stable2_20241023231111sdy_NG"
+    },
+    "tester_info": {
+        "operator": "KSK",
+        "comment": "Release testing, Only semi/operator required testcases"
+    },
+    "reports_results": [
+        {
+            "id": "e86ca272-b437-4ded-acc1-3132a0aff235",
+            "title": "org.hbbtv_DA540610",
+            "state": "Failed",
+            "test_case_id": "org.hbbtv_DA540610",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:38:34.953172Z",
+            "last_changed": "2025-02-26T09:42:22.978237Z",
+            "timed_out": true
+        },
+        {
+            "id": "3df1d8b4-4b4b-4ef6-8705-439a28e6ddd4",
+            "title": "org.hbbtv_DASH-ONDEMAND001",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_DASH-ONDEMAND001",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:42:33.053831Z",
+            "last_changed": "2025-02-26T09:42:54.454563Z",
+            "timed_out": false
+        },
+        {
+            "id": "187e77ac-28da-4200-8427-4f3c2883a7de",
+            "title": "org.hbbtv_E1210040",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_E1210040",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:43:28.280789Z",
+            "last_changed": "2025-02-26T09:44:07.053555Z",
+            "timed_out": false
+        },
+        {
+            "id": "49beff7b-23c5-4a11-aea9-173106e5f01e",
+            "title": "org.hbbtv_EAC30001",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_EAC30001",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:44:40.939186Z",
+            "last_changed": "2025-02-26T09:45:04.113826Z",
+            "timed_out": false
+        },
+        {
+            "id": "9abd84e0-c122-4f74-81c9-40b19b390658",
+            "title": "org.hbbtv_GAPFILLING0030",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_GAPFILLING0030",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:45:37.757388Z",
+            "last_changed": "2025-02-26T09:46:21.952595Z",
+            "timed_out": false
+        },
+        {
+            "id": "3ded276b-8cac-44c7-9680-93b035e5800f",
+            "title": "org.hbbtv_HTML50010",
+            "state": "Failed",
+            "test_case_id": "org.hbbtv_HTML50010",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:46:54.946724Z",
+            "last_changed": "2025-02-26T09:49:45.088471Z",
+            "timed_out": true
+        },
+        {
+            "id": "c9b4ceed-1346-4a27-a8c8-62e8ad84b3cc",
+            "title": "org.hbbtv_INLINE0010",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_INLINE0010",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:50:18.496358Z",
+            "last_changed": "2025-02-26T09:50:26.099597Z",
+            "timed_out": false
+        },
+        {
+            "id": "7710e5d0-6c05-4f34-931a-81d745c580f7",
+            "title": "org.hbbtv_KEYREQCON0100",
+            "state": "Failed",
+            "test_case_id": "org.hbbtv_KEYREQCON0100",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:50:59.662670Z",
+            "last_changed": "2025-02-26T09:53:02.608053Z",
+            "timed_out": true
+        },
+        {
+            "id": "6cb6c15d-9cf8-4d2a-97d4-82bb77f399b3",
+            "title": "org.hbbtv_MEDIAPLAYER0010",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_MEDIAPLAYER0010",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:53:36.403700Z",
+            "last_changed": "2025-02-26T09:53:56.537422Z",
+            "timed_out": false
+        },
+        {
+            "id": "096363ef-f2af-46b8-b848-59cfcc850e4c",
+            "title": "org.hbbtv_MSE-LL0100",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_MSE-LL0100",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:54:30.340463Z",
+            "last_changed": "2025-02-26T09:54:53.748129Z",
+            "timed_out": false
+        },
+        {
+            "id": "f1e4df86-f682-4f52-8016-d636fe9bcb6c",
+            "title": "org.hbbtv_PRIV0005",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_PRIV0005",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:55:47.699961Z",
+            "last_changed": "2025-02-26T09:55:47.812959Z",
+            "timed_out": false
+        },
+        {
+            "id": "a09b0f85-660c-4229-9cf5-9cd28e3813aa",
+            "title": "org.hbbtv_RELIABILITY04",
+            "state": "Failed",
+            "test_case_id": "org.hbbtv_RELIABILITY04",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:57:07.237020Z",
+            "last_changed": "2025-02-26T09:57:08.946232Z",
+            "timed_out": false
+        },
+        {
+            "id": "bd8acd80-3f01-4ff1-b09b-5a4548bb8b7f",
+            "title": "org.hbbtv_SUB0020",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_SUB0020",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:57:52.068423Z",
+            "last_changed": "2025-02-26T09:58:45.018164Z",
+            "timed_out": false
+        },
+        {
+            "id": "69fa716f-6bbd-4541-a3bc-a0aa8efc4636",
+            "title": "org.hbbtv_TA_MSE1001",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_TA_MSE1001",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T09:59:21.307875Z",
+            "last_changed": "2025-02-26T09:59:40.623381Z",
+            "timed_out": false
+        },
+        {
+            "id": "517b5d90-4b1c-445a-98f0-13a7d069f669",
+            "title": "org.hbbtv_UHD-PQ10-HTML5-ACTIONS0010",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_UHD-PQ10-HTML5-ACTIONS0010",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T10:00:14.913943Z",
+            "last_changed": "2025-02-26T10:01:19.232269Z",
+            "timed_out": false
+        },
+        {
+            "id": "b091a532-2941-4de8-b825-b0500d44aa6c",
+            "title": "org.hbbtv_UHD-PQ10-OVERLAY0010",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_UHD-PQ10-OVERLAY0010",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T10:01:53.580056Z",
+            "last_changed": "2025-02-26T10:02:47.851760Z",
+            "timed_out": false
+        },
+        {
+            "id": "bf799979-5658-4aff-9c3c-2e525adc40ef",
+            "title": "org.hbbtv_UHD-PQ10-PERIOD-TRANS0030",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_UHD-PQ10-PERIOD-TRANS0030",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T10:03:22.894859Z",
+            "last_changed": "2025-02-26T10:05:34.271204Z",
+            "timed_out": false
+        },
+        {
+            "id": "2ac60a22-e42d-4396-a8a4-f3c145e3beaa",
+            "title": "org.hbbtv_VIDEO_COMMUTING0020",
+            "state": "Failed",
+            "test_case_id": "org.hbbtv_VIDEO_COMMUTING0020",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T10:06:08.597689Z",
+            "last_changed": "2025-02-26T10:08:21.946095Z",
+            "timed_out": false
+        },
+        {
+            "id": "bd08811a-8140-46d9-b17e-0ccabd7c40a4",
+            "title": "org.hbbtv_WEBSTORAGE1000",
+            "state": "Successful",
+            "test_case_id": "org.hbbtv_WEBSTORAGE1000",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T10:13:01.255452Z",
+            "last_changed": "2025-02-26T10:13:41.022830Z",
+            "timed_out": false
+        },
+        {
+            "id": "5414599e-3b46-476a-b6e2-c2fff91346db",
+            "title": "tv.oipf_AVC-AAC-003",
+            "state": "Successful",
+            "test_case_id": "tv.oipf_AVC-AAC-003",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T10:14:15.261796Z",
+            "last_changed": "2025-02-26T10:14:26.235346Z",
+            "timed_out": false
+        },
+        {
+            "id": "c1ccac58-3a6e-4a13-bdf1-ad4af7cebfb5",
+            "title": "tv.oipf_AVC-GIF-001-001",
+            "state": "Successful",
+            "test_case_id": "tv.oipf_AVC-GIF-001-001",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T10:15:00.158717Z",
+            "last_changed": "2025-02-26T10:15:06.401367Z",
+            "timed_out": false
+        },
+        {
+            "id": "11068ea8-5170-4cd6-a25a-e2305a2fa346",
+            "title": "tv.oipf_AVC-JPG-001-001",
+            "state": "Successful",
+            "test_case_id": "tv.oipf_AVC-JPG-001-001",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T10:15:40.208779Z",
+            "last_changed": "2025-02-26T10:15:44.929658Z",
+            "timed_out": false
+        },
+        {
+            "id": "9f9536ef-62e2-4f44-8e80-d0f8b9b11b12",
+            "title": "tv.oipf_AVC-PNG-001-001",
+            "state": "Successful",
+            "test_case_id": "tv.oipf_AVC-PNG-001-001",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T10:16:18.763205Z",
+            "last_changed": "2025-02-26T10:16:23.756371Z",
+            "timed_out": false
+        },
+        {
+            "id": "172b9ca1-0e32-4c3f-b466-f5fcba9fde82",
+            "title": "tv.oipf_DAE-CAPABILITY-003-001",
+            "state": "Successful",
+            "test_case_id": "tv.oipf_DAE-CAPABILITY-003-001",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T10:17:29.094621Z",
+            "last_changed": "2025-02-26T10:17:38.902931Z",
+            "timed_out": false
+        },
+        {
+            "id": "420d89d9-0924-4a77-9cf3-316ec3b614d9",
+            "title": "tv.oipf_DAE-MEDIA_PLAYBACK-006-002",
+            "state": "Successful",
+            "test_case_id": "tv.oipf_DAE-MEDIA_PLAYBACK-006-002",
+            "test_run_id": "44a685db-b61e-4053-944c-f736dafa92c8",
+            "created": "2025-02-26T10:18:13.007590Z",
+            "last_changed": "2025-02-26T10:18:34.107167Z",
+            "timed_out": false
+        }
+    ],
+    "reports": [
+        {
+            "id": "org.hbbtv_DA540610",
+            "steps": [
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "HbbTV Application Initialised",
+                    "report_id": "e86ca272-b437-4ded-acc1-3132a0aff235",
+                    "created": "2025-02-26T09:38:35.184140Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "A/V Control object Created",
+                    "report_id": "e86ca272-b437-4ded-acc1-3132a0aff235",
+                    "created": "2025-02-26T09:38:35.426624Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "A/V Control object has been instructed to start playing",
+                    "report_id": "e86ca272-b437-4ded-acc1-3132a0aff235",
+                    "created": "2025-02-26T09:38:36.150626Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "The A/V Control object reports its state as state 1 (playing).",
+                    "report_id": "e86ca272-b437-4ded-acc1-3132a0aff235",
+                    "created": "2025-02-26T09:38:37.784151Z"
+                },
+                {
+                    "number": 5,
+                    "state": "Successful",
+                    "message": "The presence of a blue square in the top right of the image shall confirm that the expected segments are being played",
+                    "report_id": "e86ca272-b437-4ded-acc1-3132a0aff235",
+                    "created": "2025-02-26T09:38:37.841302Z",
+                    "last_changed": "2025-02-26T09:39:08.519302Z"
+                },
+                {
+                    "number": 6,
+                    "state": "Successful",
+                    "message": "Request sent to update MPD",
+                    "report_id": "e86ca272-b437-4ded-acc1-3132a0aff235",
+                    "created": "2025-02-26T09:39:38.639785Z"
+                },
+                {
+                    "number": 7,
+                    "state": "Successful",
+                    "message": "Successfully updated MPD",
+                    "report_id": "e86ca272-b437-4ded-acc1-3132a0aff235",
+                    "created": "2025-02-26T09:39:58.685475Z"
+                },
+                {
+                    "number": 99999,
+                    "state": "Failed",
+                    "message": "This is a step that is added to indicate the testcase failed due to inactivity",
+                    "report_id": "e86ca272-b437-4ded-acc1-3132a0aff235",
+                    "created": "2025-02-26T09:41:58.884056Z"
+                },
+                {
+                    "number": 8,
+                    "state": "Successful",
+                    "message": "The presence of a magenta square in the top right of the image shall confirm that segments from the dynamically added representation are being played",
+                    "report_id": "e86ca272-b437-4ded-acc1-3132a0aff235",
+                    "created": "2025-02-26T09:41:59.667115Z",
+                    "last_changed": "2025-02-26T09:42:22.964249Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_DASH-ONDEMAND001",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application was initialized and displayed.",
+                    "report_id": "3df1d8b4-4b4b-4ef6-8705-439a28e6ddd4",
+                    "created": "2025-02-26T09:42:33.184194Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "MPEG DASH playback successfully started.",
+                    "report_id": "3df1d8b4-4b4b-4ef6-8705-439a28e6ddd4",
+                    "created": "2025-02-26T09:42:33.691277Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "Presentation is playing correctly.\nCheck: Check that the video representation is playing correctly.",
+                    "report_id": "3df1d8b4-4b4b-4ef6-8705-439a28e6ddd4",
+                    "created": "2025-02-26T09:42:33.726393Z",
+                    "last_changed": "2025-02-26T09:42:54.394527Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_E1210040",
+            "steps": [
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Application initialised successfully",
+                    "report_id": "187e77ac-28da-4200-8427-4f3c2883a7de",
+                    "created": "2025-02-26T09:43:28.400219Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "A/V Control object initialised",
+                    "report_id": "187e77ac-28da-4200-8427-4f3c2883a7de",
+                    "created": "2025-02-26T09:43:28.440033Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "An onPlayStateChange event listener was added to the A/V Control object",
+                    "report_id": "187e77ac-28da-4200-8427-4f3c2883a7de",
+                    "created": "2025-02-26T09:43:28.486080Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "Calling play() with a speed of 1 on the A/V Control object returned true.",
+                    "report_id": "187e77ac-28da-4200-8427-4f3c2883a7de",
+                    "created": "2025-02-26T09:43:28.524300Z"
+                },
+                {
+                    "number": 5,
+                    "state": "Successful",
+                    "message": "The A/V Control object reports its state as state 1 (playing)",
+                    "report_id": "187e77ac-28da-4200-8427-4f3c2883a7de",
+                    "created": "2025-02-26T09:43:28.988548Z"
+                },
+                {
+                    "number": 6,
+                    "state": "Successful",
+                    "message": "Checks that the image isn't affected in any way by a change to the aspect ratio of the underlying video.\nCheck: Please ensure that the green squares remain in the corners of the screen and do not change in any way within the next 10 seconds.",
+                    "report_id": "187e77ac-28da-4200-8427-4f3c2883a7de",
+                    "created": "2025-02-26T09:43:39.005440Z",
+                    "last_changed": "2025-02-26T09:44:06.993343Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_EAC30001",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "HbbTV Application Initialised",
+                    "report_id": "49beff7b-23c5-4a11-aea9-173106e5f01e",
+                    "created": "2025-02-26T09:44:40.979101Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Audio Player Created",
+                    "report_id": "49beff7b-23c5-4a11-aea9-173106e5f01e",
+                    "created": "2025-02-26T09:44:41.016174Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "Audio player has been instructed to start playing",
+                    "report_id": "49beff7b-23c5-4a11-aea9-173106e5f01e",
+                    "created": "2025-02-26T09:44:41.066737Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "Audio playing successful. The A/V control object reported its play state as 1",
+                    "report_id": "49beff7b-23c5-4a11-aea9-173106e5f01e",
+                    "created": "2025-02-26T09:44:41.460110Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "This call tests if the terminal supports AV Content in an MP4 container, streamed over HTTP and having E-AC3 stereo audio.\nCheck: Check that the audio is playing clearly and correctly without decoding artifacts",
+                    "report_id": "49beff7b-23c5-4a11-aea9-173106e5f01e",
+                    "created": "2025-02-26T09:44:41.500699Z",
+                    "last_changed": "2025-02-26T09:45:03.865651Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_GAPFILLING0030",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application A initialised",
+                    "report_id": "9abd84e0-c122-4f74-81c9-40b19b390658",
+                    "created": "2025-02-26T09:45:37.789156Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "This call checks that the video is playing\nCheck: Confirm that the video is being presented",
+                    "report_id": "9abd84e0-c122-4f74-81c9-40b19b390658",
+                    "created": "2025-02-26T09:45:37.825805Z",
+                    "last_changed": "2025-02-26T09:46:15.124895Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "Broadcast-independent application B successfully launched",
+                    "report_id": "9abd84e0-c122-4f74-81c9-40b19b390658",
+                    "created": "2025-02-26T09:46:15.871721Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "Application B loaded successfully.",
+                    "report_id": "9abd84e0-c122-4f74-81c9-40b19b390658",
+                    "created": "2025-02-26T09:46:15.910879Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "The currentChannel status of the video/Broadcast is equal to null after starting a broadcast-independent application as expected",
+                    "report_id": "9abd84e0-c122-4f74-81c9-40b19b390658",
+                    "created": "2025-02-26T09:46:15.949580Z"
+                },
+                {
+                    "number": 5,
+                    "state": "Successful",
+                    "message": "This call checks that the application is visible without video content\nCheck: Confirm that the application is visible (there are messages visible in the centre of the DUT viewport) and no video content is being presented",
+                    "report_id": "9abd84e0-c122-4f74-81c9-40b19b390658",
+                    "created": "2025-02-26T09:46:15.991289Z",
+                    "last_changed": "2025-02-26T09:46:21.892366Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_HTML50010",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application A initialised",
+                    "report_id": "3ded276b-8cac-44c7-9680-93b035e5800f",
+                    "created": "2025-02-26T09:46:54.979475Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Failed",
+                    "message": "This step was incomplete before with message: 'This call checks that the video is playing\nCheck: Confirm that the video is being presented' but has been failed due to testcase inactivity",
+                    "report_id": "3ded276b-8cac-44c7-9680-93b035e5800f",
+                    "created": "2025-02-26T09:46:55.020878Z",
+                    "last_changed": "2025-02-26T09:49:45.060546Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_INLINE0010",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application was initialized and displayed.",
+                    "report_id": "c9b4ceed-1346-4a27-a8c8-62e8ad84b3cc",
+                    "created": "2025-02-26T09:50:18.537011Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Check the presence of the image.",
+                    "report_id": "c9b4ceed-1346-4a27-a8c8-62e8ad84b3cc",
+                    "created": "2025-02-26T09:50:19.128899Z",
+                    "last_changed": "2025-02-26T09:50:26.029762Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_KEYREQCON0100",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application was initialized and displayed.",
+                    "report_id": "7710e5d0-6c05-4f34-931a-81d745c580f7",
+                    "created": "2025-02-26T09:51:00.194648Z"
+                },
+                {
+                    "number": 99999,
+                    "state": "Failed",
+                    "message": "This is a step that is added to indicate the testcase failed due to inactivity",
+                    "report_id": "7710e5d0-6c05-4f34-931a-81d745c580f7",
+                    "created": "2025-02-26T09:53:02.583615Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_MEDIAPLAYER0010",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application was initialized and displayed.",
+                    "report_id": "6cb6c15d-9cf8-4d2a-97d4-82bb77f399b3",
+                    "created": "2025-02-26T09:53:36.442428Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Player is successfully initialized.",
+                    "report_id": "6cb6c15d-9cf8-4d2a-97d4-82bb77f399b3",
+                    "created": "2025-02-26T09:53:36.486741Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "Pause function of player successfully executed.",
+                    "report_id": "6cb6c15d-9cf8-4d2a-97d4-82bb77f399b3",
+                    "created": "2025-02-26T09:53:36.523873Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "The terminal continues playback from the correct position.",
+                    "report_id": "6cb6c15d-9cf8-4d2a-97d4-82bb77f399b3",
+                    "created": "2025-02-26T09:53:46.359416Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "In this step is checked whether playback continues from the point the application asked to seek to.\nCheck: Check if video playback has started from 00:00:28:21 or 00:00:28:22 (time shown in the left top corner of the screen) and playback is running properly. ",
+                    "report_id": "6cb6c15d-9cf8-4d2a-97d4-82bb77f399b3",
+                    "created": "2025-02-26T09:53:46.402785Z",
+                    "last_changed": "2025-02-26T09:53:56.432310Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_MSE-LL0100",
+            "steps": [
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Application initialised",
+                    "report_id": "096363ef-f2af-46b8-b848-59cfcc850e4c",
+                    "created": "2025-02-26T09:54:30.393048Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "Bound to current channel",
+                    "report_id": "096363ef-f2af-46b8-b848-59cfcc850e4c",
+                    "created": "2025-02-26T09:54:30.461368Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "MSE initialized, MediaSource HEAAC:AVC_HD_25 buffered, 'canplay' reached",
+                    "report_id": "096363ef-f2af-46b8-b848-59cfcc850e4c",
+                    "created": "2025-02-26T09:54:30.790169Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "MediaSource HEAAC:AVC_HD_25 started playback",
+                    "report_id": "096363ef-f2af-46b8-b848-59cfcc850e4c",
+                    "created": "2025-02-26T09:54:30.834495Z"
+                },
+                {
+                    "number": 5,
+                    "state": "Successful",
+                    "message": "Ensuring the terminal accepts the presence of 'emsg' boxes before the beginning of a new media segment\nCheck: Record and analyse the 'main (MediaSource HEAAC:AVC_HD_25) ' video and audio. Check that there are no glitches or artefacts in the video and audio is played when MSE SourceBuffer is appended with content.",
+                    "report_id": "096363ef-f2af-46b8-b848-59cfcc850e4c",
+                    "created": "2025-02-26T09:54:38.021091Z",
+                    "last_changed": "2025-02-26T09:54:53.221436Z"
+                },
+                {
+                    "number": 6,
+                    "state": "Successful",
+                    "message": "Appended more content of MediaSource HEAAC:AVC_HD_25 to the MSE SourceBuffers with emsg boxes prior to the moof boxes",
+                    "report_id": "096363ef-f2af-46b8-b848-59cfcc850e4c",
+                    "created": "2025-02-26T09:54:53.681165Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_PRIV0005",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application was initialized and displayed.",
+                    "report_id": "f1e4df86-f682-4f52-8016-d636fe9bcb6c",
+                    "created": "2025-02-26T09:55:47.733393Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "No DNT (DoNotTrack) header in HTTP request.",
+                    "report_id": "f1e4df86-f682-4f52-8016-d636fe9bcb6c",
+                    "created": "2025-02-26T09:55:47.766638Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_RELIABILITY04",
+            "steps": [
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "The channel is set to ATE Test 12.",
+                    "report_id": "a09b0f85-660c-4229-9cf5-9cd28e3813aa",
+                    "created": "2025-02-26T09:57:08.833195Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Failed",
+                    "message": "Current active subtitle components collection length is equal to 1, should be 0",
+                    "report_id": "a09b0f85-660c-4229-9cf5-9cd28e3813aa",
+                    "created": "2025-02-26T09:57:08.884182Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_SUB0020",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application was initialized and displayed.",
+                    "report_id": "bd8acd80-3f01-4ff1-b09b-5a4548bb8b7f",
+                    "created": "2025-02-26T09:57:52.118579Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Subtitle component is present.",
+                    "report_id": "bd8acd80-3f01-4ff1-b09b-5a4548bb8b7f",
+                    "created": "2025-02-26T09:58:02.952039Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "Please check if subtitle with all characters are shown in a same way as in referent image. Font type/size and background size may be different than present on the referenced image.\nCheck: Check if special characters are shown in subtitles as shown in referent image.",
+                    "report_id": "bd8acd80-3f01-4ff1-b09b-5a4548bb8b7f",
+                    "created": "2025-02-26T09:58:16.751214Z",
+                    "last_changed": "2025-02-26T09:58:31.486876Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "Please check if subtitle with all characters are shown in a same way as in referent image. Font type/size and background size may be different than present on the referenced image.\nCheck: Check if special characters are shown in subtitles as shown in referent image.",
+                    "report_id": "bd8acd80-3f01-4ff1-b09b-5a4548bb8b7f",
+                    "created": "2025-02-26T09:58:36.674733Z",
+                    "last_changed": "2025-02-26T09:58:44.958820Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_TA_MSE1001",
+            "steps": [
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Application initialised",
+                    "report_id": "69fa716f-6bbd-4541-a3bc-a0aa8efc4636",
+                    "created": "2025-02-26T09:59:21.890519Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "A 'play' event was successfully received",
+                    "report_id": "69fa716f-6bbd-4541-a3bc-a0aa8efc4636",
+                    "created": "2025-02-26T09:59:22.046878Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "TextTrack successfully added to the MSE media element",
+                    "report_id": "69fa716f-6bbd-4541-a3bc-a0aa8efc4636",
+                    "created": "2025-02-26T09:59:22.344146Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "MSE based video plays with out-of-band subtitles plays properly until the end is reached",
+                    "report_id": "69fa716f-6bbd-4541-a3bc-a0aa8efc4636",
+                    "created": "2025-02-26T09:59:40.560347Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_UHD-PQ10-HTML5-ACTIONS0010",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application initialised",
+                    "report_id": "517b5d90-4b1c-445a-98f0-13a7d069f669",
+                    "created": "2025-02-26T10:00:15.042375Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Broadcast video presentation stopped.",
+                    "report_id": "517b5d90-4b1c-445a-98f0-13a7d069f669",
+                    "created": "2025-02-26T10:00:15.223963Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "Network bandwidth set.",
+                    "report_id": "517b5d90-4b1c-445a-98f0-13a7d069f669",
+                    "created": "2025-02-26T10:00:15.571539Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "HTML5 video object retrieved correctly",
+                    "report_id": "517b5d90-4b1c-445a-98f0-13a7d069f669",
+                    "created": "2025-02-26T10:00:15.619592Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "play() method called successfully on video element",
+                    "report_id": "517b5d90-4b1c-445a-98f0-13a7d069f669",
+                    "created": "2025-02-26T10:00:15.665940Z"
+                },
+                {
+                    "number": 5,
+                    "state": "Successful",
+                    "message": "'playing' event received successfully",
+                    "report_id": "517b5d90-4b1c-445a-98f0-13a7d069f669",
+                    "created": "2025-02-26T10:00:15.722889Z"
+                },
+                {
+                    "number": 6,
+                    "state": "Successful",
+                    "message": "'pause' event successfully received.",
+                    "report_id": "517b5d90-4b1c-445a-98f0-13a7d069f669",
+                    "created": "2025-02-26T10:00:20.569527Z"
+                },
+                {
+                    "number": 7,
+                    "state": "Successful",
+                    "message": "'paused' property of the video object is true",
+                    "report_id": "517b5d90-4b1c-445a-98f0-13a7d069f669",
+                    "created": "2025-02-26T10:00:20.640697Z"
+                },
+                {
+                    "number": 8,
+                    "state": "Successful",
+                    "message": "This checks that the video is paused correctly\nCheck: Check that the video is visible and has frozen on the screen.",
+                    "report_id": "517b5d90-4b1c-445a-98f0-13a7d069f669",
+                    "created": "2025-02-26T10:00:20.695478Z",
+                    "last_changed": "2025-02-26T10:01:07.940367Z"
+                },
+                {
+                    "number": 9,
+                    "state": "Successful",
+                    "message": "This checks that the audio is paused correctly\nCheck: Check that the audio has been suspended.",
+                    "report_id": "517b5d90-4b1c-445a-98f0-13a7d069f669",
+                    "created": "2025-02-26T10:01:08.004390Z",
+                    "last_changed": "2025-02-26T10:01:19.169088Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_UHD-PQ10-OVERLAY0010",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application initialised",
+                    "report_id": "b091a532-2941-4de8-b825-b0500d44aa6c",
+                    "created": "2025-02-26T10:01:53.644012Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Network bandwidth set.",
+                    "report_id": "b091a532-2941-4de8-b825-b0500d44aa6c",
+                    "created": "2025-02-26T10:01:54.204010Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "HTML5 video object retrieved correctly",
+                    "report_id": "b091a532-2941-4de8-b825-b0500d44aa6c",
+                    "created": "2025-02-26T10:01:54.255538Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "play() method called successfully on video element",
+                    "report_id": "b091a532-2941-4de8-b825-b0500d44aa6c",
+                    "created": "2025-02-26T10:01:54.349177Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "'playing' event received successfully",
+                    "report_id": "b091a532-2941-4de8-b825-b0500d44aa6c",
+                    "created": "2025-02-26T10:01:54.419969Z"
+                },
+                {
+                    "number": 5,
+                    "state": "Successful",
+                    "message": "This checks that the text and graphics are being displayed correctly, and that the video is not visible \nCheck: Check that a white non-transparent square is shown at the top left of the screen, and the text \"This is a non-transparent text!\" is shown at the top middle of the screen, and that the video cannot be seen through the black background graphic, white square, and the text",
+                    "report_id": "b091a532-2941-4de8-b825-b0500d44aa6c",
+                    "created": "2025-02-26T10:01:55.082238Z",
+                    "last_changed": "2025-02-26T10:02:47.770788Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_UHD-PQ10-PERIOD-TRANS0030",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application initialised",
+                    "report_id": "bf799979-5658-4aff-9c3c-2e525adc40ef",
+                    "created": "2025-02-26T10:03:22.944538Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "HTML5 video object retrieved correctly",
+                    "report_id": "bf799979-5658-4aff-9c3c-2e525adc40ef",
+                    "created": "2025-02-26T10:03:23.439427Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "play() method called successfully on video element",
+                    "report_id": "bf799979-5658-4aff-9c3c-2e525adc40ef",
+                    "created": "2025-02-26T10:03:23.511068Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "'playing' event sent successfully",
+                    "report_id": "bf799979-5658-4aff-9c3c-2e525adc40ef",
+                    "created": "2025-02-26T10:03:23.736955Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "This checks if the receiver correctly plays a stream defined by a static MPD containing two contiguous periods with the same media.\nCheck: Check that the video and audio are playing correctly, and that the  3840x2160_50_pq10_no_metadata_broadband_5min is presented seamlessly without artifacts or glitches after the transition between the two periods. Note that the transition will be triggered within 5 seconds.",
+                    "report_id": "bf799979-5658-4aff-9c3c-2e525adc40ef",
+                    "created": "2025-02-26T10:05:26.707806Z",
+                    "last_changed": "2025-02-26T10:05:34.193728Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_VIDEO_COMMUTING0020",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application initialised",
+                    "report_id": "2ac60a22-e42d-4396-a8a4-f3c145e3beaa",
+                    "created": "2025-02-26T10:06:08.793223Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Successfully stopped broadcast video",
+                    "report_id": "2ac60a22-e42d-4396-a8a4-f3c145e3beaa",
+                    "created": "2025-02-26T10:06:08.986040Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "Broadband media has started playing",
+                    "report_id": "2ac60a22-e42d-4396-a8a4-f3c145e3beaa",
+                    "created": "2025-02-26T10:06:09.314658Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Failed",
+                    "message": "This step verifies that the expected video component is being presented by the terminal.\nCheck: Check that the following video is being presented by the terminal: Suspension Bridge",
+                    "report_id": "2ac60a22-e42d-4396-a8a4-f3c145e3beaa",
+                    "created": "2025-02-26T10:06:09.419085Z",
+                    "last_changed": "2025-02-26T10:08:13.521732Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "Inactive video component_tag is undefined",
+                    "report_id": "2ac60a22-e42d-4396-a8a4-f3c145e3beaa",
+                    "created": "2025-02-26T10:08:13.749634Z"
+                },
+                {
+                    "number": 5,
+                    "state": "Successful",
+                    "message": "Called selectComponent() on the A/V Control object",
+                    "report_id": "2ac60a22-e42d-4396-a8a4-f3c145e3beaa",
+                    "created": "2025-02-26T10:08:13.801997Z"
+                },
+                {
+                    "number": 6,
+                    "state": "Successful",
+                    "message": "A SelectedComponentChanged event was received with a 'componentType' of 0 (VIDEO)",
+                    "report_id": "2ac60a22-e42d-4396-a8a4-f3c145e3beaa",
+                    "created": "2025-02-26T10:08:13.880913Z"
+                },
+                {
+                    "number": 7,
+                    "state": "Failed",
+                    "message": "This step verifies that the terminal has correctly switched the video component being presented\nCheck: Check that the following video is being presented by the terminal: Media Sync Test Media",
+                    "report_id": "2ac60a22-e42d-4396-a8a4-f3c145e3beaa",
+                    "created": "2025-02-26T10:08:13.924453Z",
+                    "last_changed": "2025-02-26T10:08:21.575688Z"
+                }
+            ]
+        },
+        {
+            "id": "org.hbbtv_WEBSTORAGE1000",
+            "steps": [
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "navigator.cookieEnabled is set to true.",
+                    "report_id": "bd08811a-8140-46d9-b17e-0ccabd7c40a4",
+                    "created": "2025-02-26T10:13:01.307987Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "cookie with expiry time Wed, 26 Feb 2025 11:13:01 GMT was created.",
+                    "report_id": "bd08811a-8140-46d9-b17e-0ccabd7c40a4",
+                    "created": "2025-02-26T10:13:01.898082Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "Call to localStorage.setItem sets the 'org.hbbtv_WEBSTORAGE1000' variable with 'LisTV' value.",
+                    "report_id": "bd08811a-8140-46d9-b17e-0ccabd7c40a4",
+                    "created": "2025-02-26T10:13:02.898808Z"
+                },
+                {
+                    "number": 7,
+                    "state": "Successful",
+                    "message": "Call to localStorage.getItem retuned the correct 'LisTV' value.",
+                    "report_id": "bd08811a-8140-46d9-b17e-0ccabd7c40a4",
+                    "created": "2025-02-26T10:13:39.560600Z"
+                },
+                {
+                    "number": 8,
+                    "state": "Successful",
+                    "message": "The cookie is available after power cycle.",
+                    "report_id": "bd08811a-8140-46d9-b17e-0ccabd7c40a4",
+                    "created": "2025-02-26T10:13:40.959676Z"
+                }
+            ]
+        },
+        {
+            "id": "tv.oipf_AVC-AAC-003",
+            "steps": [
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Application initialised successfully",
+                    "report_id": "5414599e-3b46-476a-b6e2-c2fff91346db",
+                    "created": "2025-02-26T10:14:15.308376Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "A 'PlayStateChange' event listener was registered with the A/V Control object",
+                    "report_id": "5414599e-3b46-476a-b6e2-c2fff91346db",
+                    "created": "2025-02-26T10:14:17.173312Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "play() was called on the A/V Control object with its 'speed' argument set to 1. Return value: true",
+                    "report_id": "5414599e-3b46-476a-b6e2-c2fff91346db",
+                    "created": "2025-02-26T10:14:17.570564Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "A 'PlayStateChange' event was dispatched. A/V Control object's 'playState' property equals 1 (PLAYING)",
+                    "report_id": "5414599e-3b46-476a-b6e2-c2fff91346db",
+                    "created": "2025-02-26T10:14:18.278993Z"
+                },
+                {
+                    "number": 5,
+                    "state": "Successful",
+                    "message": "This checks that HE-AAC memory audio can be decoded correctly\nCheck: Check that the audio plays correctly and that there are no decoding artifacts",
+                    "report_id": "5414599e-3b46-476a-b6e2-c2fff91346db",
+                    "created": "2025-02-26T10:14:18.318980Z",
+                    "last_changed": "2025-02-26T10:14:26.170971Z"
+                }
+            ]
+        },
+        {
+            "id": "tv.oipf_AVC-GIF-001-001",
+            "steps": [
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Application initialised successfully",
+                    "report_id": "c1ccac58-3a6e-4a13-bdf1-ad4af7cebfb5",
+                    "created": "2025-02-26T10:15:00.192216Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "This checks that a 20 x 20 px GIF image is rendered correctly\nCheck: Check that a 20 x 20 px image appears in the centre of the screen",
+                    "report_id": "c1ccac58-3a6e-4a13-bdf1-ad4af7cebfb5",
+                    "created": "2025-02-26T10:15:01.028539Z",
+                    "last_changed": "2025-02-26T10:15:06.342165Z"
+                }
+            ]
+        },
+        {
+            "id": "tv.oipf_AVC-JPG-001-001",
+            "steps": [
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Application initialised successfully",
+                    "report_id": "11068ea8-5170-4cd6-a25a-e2305a2fa346",
+                    "created": "2025-02-26T10:15:40.244550Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "This checks that a 20 x 20 px JPEG image is rendered correctly\nCheck: Check that a 20 x 20 px image appears in the centre of the screen",
+                    "report_id": "11068ea8-5170-4cd6-a25a-e2305a2fa346",
+                    "created": "2025-02-26T10:15:41.092293Z",
+                    "last_changed": "2025-02-26T10:15:44.857211Z"
+                }
+            ]
+        },
+        {
+            "id": "tv.oipf_AVC-PNG-001-001",
+            "steps": [
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Application initialised successfully",
+                    "report_id": "9f9536ef-62e2-4f44-8e80-d0f8b9b11b12",
+                    "created": "2025-02-26T10:16:18.799725Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "This checks that a 20 x 20 px PNG image is rendered correctly\nCheck: Check that a 20 x 20 px image appears in the centre of the screen",
+                    "report_id": "9f9536ef-62e2-4f44-8e80-d0f8b9b11b12",
+                    "created": "2025-02-26T10:16:19.658213Z",
+                    "last_changed": "2025-02-26T10:16:23.685483Z"
+                }
+            ]
+        },
+        {
+            "id": "tv.oipf_DAE-CAPABILITY-003-001",
+            "steps": [
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "Application initialised successfully",
+                    "report_id": "172b9ca1-0e32-4c3f-b466-f5fcba9fde82",
+                    "created": "2025-02-26T10:17:29.160147Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "Video player object initialised.",
+                    "report_id": "172b9ca1-0e32-4c3f-b466-f5fcba9fde82",
+                    "created": "2025-02-26T10:17:29.232690Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "A/V control has been instructed to start playing.",
+                    "report_id": "172b9ca1-0e32-4c3f-b466-f5fcba9fde82",
+                    "created": "2025-02-26T10:17:29.276074Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "The A/V control reports its state as state 1 (playing)",
+                    "report_id": "172b9ca1-0e32-4c3f-b466-f5fcba9fde82",
+                    "created": "2025-02-26T10:17:29.772240Z"
+                },
+                {
+                    "number": 5,
+                    "state": "Successful",
+                    "message": "This checks that an image can be decoded and displayed while a video is being decoded\nCheck: Please check that the image has displayed correctly. The marker bars have the following properties: Black 3px wide 1px gap, Blue 5px wide 5px gap, Green 9px wide 9px gap.",
+                    "report_id": "172b9ca1-0e32-4c3f-b466-f5fcba9fde82",
+                    "created": "2025-02-26T10:17:30.779194Z",
+                    "last_changed": "2025-02-26T10:17:38.841422Z"
+                }
+            ]
+        },
+        {
+            "id": "tv.oipf_DAE-MEDIA_PLAYBACK-006-002",
+            "steps": [
+                {
+                    "number": 0,
+                    "state": "Successful",
+                    "message": "Application initialised",
+                    "report_id": "420d89d9-0924-4a77-9cf3-316ec3b614d9",
+                    "created": "2025-02-26T10:18:13.051354Z"
+                },
+                {
+                    "number": 1,
+                    "state": "Successful",
+                    "message": "A/V Control object initialised",
+                    "report_id": "420d89d9-0924-4a77-9cf3-316ec3b614d9",
+                    "created": "2025-02-26T10:18:13.114820Z"
+                },
+                {
+                    "number": 2,
+                    "state": "Successful",
+                    "message": "An 'onPlayStateChange' event listener was added to the A/V Control object",
+                    "report_id": "420d89d9-0924-4a77-9cf3-316ec3b614d9",
+                    "created": "2025-02-26T10:18:13.158916Z"
+                },
+                {
+                    "number": 3,
+                    "state": "Successful",
+                    "message": "The A/V Control object dispatched an 'onPlayStateChange' event and its 'playState' property is equal to 1 (playing)",
+                    "report_id": "420d89d9-0924-4a77-9cf3-316ec3b614d9",
+                    "created": "2025-02-26T10:18:13.576097Z"
+                },
+                {
+                    "number": 4,
+                    "state": "Successful",
+                    "message": "This checks that the A/V Control object does not present video when its 'visibility' CSS property is set to 'hidden'\nCheck: Check that the A/V Control object's video is NOT being presented",
+                    "report_id": "420d89d9-0924-4a77-9cf3-316ec3b614d9",
+                    "created": "2025-02-26T10:18:13.617818Z",
+                    "last_changed": "2025-02-26T10:18:19.976639Z"
+                },
+                {
+                    "number": 5,
+                    "state": "Successful",
+                    "message": "This checks that the A/V Control object still presents audio when its 'visibility' CSS property is set to 'hidden'\nCheck: Check that the A/V Control object's audio IS being presented",
+                    "report_id": "420d89d9-0924-4a77-9cf3-316ec3b614d9",
+                    "created": "2025-02-26T10:18:20.024864Z",
+                    "last_changed": "2025-02-26T10:18:33.896105Z"
+                }
+            ]
+        }
+    ],
+    "remaining_test_cases": [],
+    "created": "2025-02-26T09:37:32.280518Z"
+}

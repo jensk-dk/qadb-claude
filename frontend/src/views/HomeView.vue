@@ -68,7 +68,8 @@
               <v-list-item
                 v-for="run in recentTestRuns"
                 :key="run.id"
-                :to="{ name: 'test-run-detail', params: { id: run.id } }"
+                @click="goToTestRunDetail(run.id)"
+                style="cursor: pointer"
               >
                 <v-list-item-title>{{ run.name || `Test Run #${run.id}` }}</v-list-item-title>
                 <v-list-item-subtitle>{{ run.status }} - {{ run.date }}</v-list-item-subtitle>
@@ -408,6 +409,12 @@ export default {
       window.location.href = '/test-runs';
     }
     
+    // Navigate to test run detail view
+    const goToTestRunDetail = (id) => {
+      console.log('Navigating to test run detail for ID:', id);
+      window.location.href = `/test-runs/${id}`;
+    }
+    
     const compareRuns = () => {
       if (compareRun1.value && compareRun2.value) {
         router.push({
@@ -469,6 +476,7 @@ export default {
       compareRun2,
       getPassRateColor,
       navigateToTestRuns,
+      goToTestRunDetail,
       compareRuns,
       chartContainer,
       chartRef,

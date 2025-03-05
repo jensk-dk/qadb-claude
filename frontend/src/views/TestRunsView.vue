@@ -69,6 +69,7 @@
           'items-per-page-options': [5, 10, 15, 20, -1],
         }"
         class="elevation-1"
+        @click:row="(event, {item}) => viewTestRun(item.raw)"
       >
         <template v-slot:item.run_date="{ item }">
           {{ formatDate(item.raw.run_date) }}
@@ -100,20 +101,20 @@
           <v-icon
             size="small"
             class="me-2"
-            @click="viewTestRun(item.raw)"
+            @click.stop="viewTestRun(item.raw)"
           >
             mdi-eye
           </v-icon>
           <v-icon
             size="small"
             class="me-2"
-            @click="editItem(item.raw)"
+            @click.stop="editItem(item.raw)"
           >
             mdi-pencil
           </v-icon>
           <v-icon
             size="small"
-            @click="confirmDelete(item.raw)"
+            @click.stop="confirmDelete(item.raw)"
           >
             mdi-delete
           </v-icon>

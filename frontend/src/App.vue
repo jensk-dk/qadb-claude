@@ -128,6 +128,9 @@ export default {
 
     // Methods
     const navigateToPage = (path) => {
+      console.log('Navigation requested to:', path);
+      console.log('Current route:', route.path);
+      
       // Special handling when navigating away from Dashboard
       if (route.path === '/' && path !== '/') {
         console.log('Navigating away from Dashboard...');
@@ -138,6 +141,13 @@ export default {
           window.location.href = path;
         }, 10);
         
+        return;
+      }
+      
+      // Special handling for test run detail route (don't use router)
+      if (path === '/test-runs' && route.path.startsWith('/test-runs/') && route.path !== '/test-runs') {
+        console.log('Navigating from test run detail to test runs list');
+        window.location.href = path;
         return;
       }
       

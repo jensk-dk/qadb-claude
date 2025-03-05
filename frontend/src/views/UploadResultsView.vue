@@ -95,9 +95,10 @@
             
             <h3 class="text-subtitle-1 mt-4">File Structure</h3>
             <p>
-              Your JSON file should contain a test run with test case results.
-              Required structure:
+              Your JSON file can use multiple formats:
             </p>
+            
+            <h4 class="text-body-2 font-weight-bold mt-2">Standard Format:</h4>
             <ul>
               <li><strong>test_run:</strong> Information about the test run
                 <ul>
@@ -111,7 +112,23 @@
                   <li><strong>test_case_id:</strong> Test case identifier</li>
                   <li><strong>result:</strong> Pass or Fail</li>
                   <li><strong>logs:</strong> (Optional) Test logs</li>
-                  <li><strong>description:</strong> (Optional) Test case description</li>
+                </ul>
+              </li>
+            </ul>
+            
+            <h4 class="text-body-2 font-weight-bold mt-2">Alternative Format:</h4>
+            <ul>
+              <li><strong>test_cases:</strong> Array of test case definitions</li>
+              <li><strong>test_case_results:</strong> Array of test results with test_case_id references</li>
+            </ul>
+            
+            <h4 class="text-body-2 font-weight-bold mt-2">HbbTV Test Format:</h4>
+            <ul>
+              <li>Array of test report objects, each with:
+                <ul>
+                  <li><strong>test_case_id:</strong> Identifier</li>
+                  <li><strong>state:</strong> Successful/Failed</li>
+                  <li><strong>test_run_id:</strong> Reference ID</li>
                 </ul>
               </li>
             </ul>
